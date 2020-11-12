@@ -1,0 +1,21 @@
+﻿@model IEnumerable<NewsPortal.Models.Noticia>
+
+@{
+    ViewBag.Title = "Buscar notícias";
+}
+
+@foreach (var item in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p>@item.Titulo)</p>
+        </div>
+        <div class="panel-body">
+            <p>@item.Conteudo.Substring(0, 100) ...</p>
+            @Html.DisplayFor(modelItem => item.Autor)
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Ler mais", "Detalhes", new { id = @item.Id }, new { @class = "btn btn-default" })
+        </div>
+    </div>
+}
